@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+[ -n "$RBENV_DEBUG" ] && set -x
+
+if [ -n "$1" ]; then
+  if [ -e ".rbenv-vars-$1" ]; then
+    echo "ln -sf .rbenv-vars-$1 .rbenv-vars"
+    echo "echo '.rbenv-vars-$1 -> .rbenv-vars'"
+  else
+    echo "echo 'File .rbenv-vars-$1 not exists.'"
+  fi
+else
+  echo "echo 'Usage: rbenv set-vars [postfix]'"
+fi
