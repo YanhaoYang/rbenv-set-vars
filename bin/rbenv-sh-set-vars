@@ -11,5 +11,10 @@ if [ -n "$1" ]; then
     echo "echo 'File .rbenv-vars-$1 not exists.'"
   fi
 else
-  echo "echo 'Usage: rbenv set-vars [postfix]'"
+  if [ -e ".rbenv-vars" ]; then
+    echo "rm .rbenv-vars"
+    echo "echo 'removed .rbenv-vars'"
+  else
+    echo "echo 'Usage: rbenv set-vars [suffix]'"
+  fi
 fi
